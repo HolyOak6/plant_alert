@@ -5,9 +5,9 @@ import smtplib
 from email.message import EmailMessage
 
 load_dotenv()
-email_sender = os.getenv("EMAIL_USER")
-email_password = os.getenv("EMAIL_PASS")
-api_key = os.getenv("API_KEY")
+email_sender = os.getenv("EMAIL_USER") or os.environ["EMAIL_USER"]
+email_password = os.getenv("EMAIL_PASS") or os.environ["EMAIL_PASS"]
+api_key = os.getenv("API_KEY") or os.environ["API_KEY"]
 email_receiver = email_sender  # send to yourself
 url = "https://api.openweathermap.org/data/3.0/onecall"
 
@@ -23,8 +23,8 @@ def send_alert():
         smtp.send_message(msg)
 
 params = {
-    "lat": os.getenv("LATITUDE"),
-    "lon": os.getenv("LONGITUDE"),
+    "lat": os.getenv("LATITUDE") or os.environ["LATITUDE"],
+    "lon": os.getenv("LONGITUDE") or os.environ["LONGITUDE"],
     "appid": api_key,
     "units": "imperial"
 }
