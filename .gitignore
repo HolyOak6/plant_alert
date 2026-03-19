@@ -13,3 +13,18 @@ env/
 # OS files
 .DS_Store
 .idea/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
